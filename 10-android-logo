@@ -1,0 +1,29 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+
+c1="\e[1;32m" # Green
+c2="\e[39m" # Wite
+STOP="\e[0m"
+LINE=$(($(($(stty size|awk '{print $2}')))/2-17))
+LOGO="
+\033[${LINE}C         -o          o-
+\033[${LINE}C          +hydNNNNdyh+
+\033[${LINE}C        +mMMMMMMMMMMMMm+
+\033[${LINE}C      \`dMM${c2}m:${c1}NMMMMMMN${c2}:m${c1}MMd\`
+\033[${LINE}C      hMMMMMMMMMMMMMMMMMMh
+\033[${LINE}C  ..  yyyyyyyyyyyyyyyyyyyy  ..
+\033[${LINE}C.mMMm\`MMMMMMMMMMMMMMMMMMMM\`mMMm.
+\033[${LINE}C:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
+\033[${LINE}C:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
+\033[${LINE}C:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
+\033[${LINE}C:MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM:
+\033[${LINE}C-MMMM-MMMMMMMMMMMMMMMMMMMM-MMMM-
+\033[${LINE}C +yy+ MMMMMMMMMMMMMMMMMMMM +yy+
+\033[${LINE}C      mMMMMMMMMMMMMMMMMMMm
+\033[${LINE}C      \`/++MMMMh++hMMMM++/\`
+\033[${LINE}C          MMMMo  oMMMM
+\033[${LINE}C          MMMMo  oMMMM
+\033[${LINE}C          oNMm-  -mMNs
+"
+
+printf "${c1}${LOGO}${STOP}"
+
