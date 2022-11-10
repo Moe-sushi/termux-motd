@@ -11,9 +11,8 @@ disk usage横条根据屏幕宽度自动调整。
 内核有docker支持的，可在安装docker后将目录中的26-docker.disabled重命名为26-docker。        
 ```shell
 git clone https://github.com/Moe-hacker/termux-motd ~/.motd
-echo ~/.motd/init.sh >> ~/.profile
-echo ~/.profile >> ~/.zshrc
-chmod 777 ~/.profile
+echo ~/.motd/init.sh >> ~/.bashrc
+echo ~/.motd/init.sh >> ~/.zshrc
 ```
 有docker支持的需额外运行：      
 ```shell
