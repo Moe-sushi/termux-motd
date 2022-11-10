@@ -12,6 +12,8 @@ disk usage横条根据屏幕宽度自动调整。
 ```shell
 git clone https://github.com/Moe-hacker/termux-motd ~/.motd
 echo ~/.motd/init.sh >> ~/.profile
+echo ~/.profile >> ~/.zshrc
+chmod 777 ~/.profile
 ```
 有docker支持的需额外运行：      
 ```shell
