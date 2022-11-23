@@ -2,13 +2,16 @@
 if [[ $(sudo pidof dockerd) = "" ]];then
     sudo rm /data/docker/run/docker.sock > /dev/null
     sudo rm /data/docker/run/docker.pid > /dev/null
+#删除注释以自动挂载cgroupfs，在作者本人的设备上不需要此操作
 #    sudo mount -t tmpfs -o mode=755 tmpfs /sys/fs/cgroup
 #    sudo mkdir -p /sys/fs/cgroup/devices
 #    sudo mount -t cgroup -o devices cgroup /sys/fs/cgroup/devices
     sleep 0.5s
     START_DOCKERD=$(sudo dockerd -l fatal 2>&1) &
     sleep 2s
-    sudo chown $(whoami) /data/docker/run/docker.sock
+#删除注释以使用普通用户调用docker，强烈不建议这么做
+#    sudo setenforce 0
+#    sudo chown $(whoami) /data/docker/run/docker.sock
 fi
 # set column width
 COLUMNS=2
@@ -35,7 +38,7 @@ for i in "${!containers[@]}"; do
 done
 out+="\n"
 
-
+#这段加的简直就是比着葫芦画瓢
 mapfile -t images < <(sudo docker image ls -a --format '{{.Repository}}\t{{.Tag}}' | sort -k1 | awk '{ print $1,$2 }')
 
 out1=""
