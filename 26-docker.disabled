@@ -6,11 +6,10 @@ if [[ $(sudo pidof dockerd) = "" ]];then
 #    sudo mkdir -p /sys/fs/cgroup/devices
 #    sudo mount -t cgroup -o devices cgroup /sys/fs/cgroup/devices
     sleep 0.5s
-    START_DOCKERD=$(sudo dockerd -l fatal & > /dev/null) &
+    START_DOCKERD=$(sudo dockerd -l fatal 2>&1) &
     sleep 2s
+    sudo chown $(whoami) /data/docker/run/docker.sock
 fi
-#!/bin/bash
-
 # set column width
 COLUMNS=2
 # colors
