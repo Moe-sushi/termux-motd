@@ -7,7 +7,7 @@ if [[ $(sudo pidof dockerd) = "" ]];then
 #    sudo mkdir -p /sys/fs/cgroup/devices
 #    sudo mount -t cgroup -o devices cgroup /sys/fs/cgroup/devices
     sleep 0.5s
-    START_DOCKERD=$(sudo dockerd -l fatal 2>&1) &
+    START_DOCKERD=$(sudo dockerd -l fatal 2>&1 &) &
     sleep 2s
 #删除注释以使用普通用户调用docker，强烈不建议这么做
 #    sudo setenforce 0
